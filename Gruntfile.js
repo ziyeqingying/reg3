@@ -25,7 +25,6 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks("grunt-contrib-htmlmin");
     grunt.loadNpmTasks("grunt-contrib-copy");
-    grunt.loadNpmTasks("grunt-contrib-cssmin");
 
-    grunt.registerTask("release", ['copy', 'htmlmin', 'cssmin']);
+    grunt.registerTask("release", ['copy', 'htmlmin']);
 }
