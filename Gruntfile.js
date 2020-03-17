@@ -14,6 +14,10 @@ module.exports = function(grunt) {
             html: {
                 src: "./index.html", 
                 dest: "./dist/index.html"
+            },
+            css: {
+                src: "./index.css",
+                dest: "./dist/index.css"
             }
         }
     })
@@ -21,6 +25,7 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks("grunt-contrib-htmlmin");
     grunt.loadNpmTasks("grunt-contrib-copy");
+    grunt.loadNpmTasks("grunt-contrib-cssmin");
 
-    grunt.registerTask("release", ['copy', 'htmlmin']);
+    grunt.registerTask("release", ['copy', 'htmlmin', 'cssmin']);
 }
