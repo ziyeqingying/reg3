@@ -10,7 +10,17 @@ module.exports = function(grunt) {
                 dest: "dist/index.html"
             }
         },
-        copy: {
+        cssmin: {
+            "dist/index.css": "dist/index.css"
+        },
+        uglify: {
+            release: {
+                files: {
+                    "dist/index.js": "dist/index.js"
+                }
+            }
+        },
+        copy: { 
             html: {
                 src: "./index.html", 
                 dest: "./dist/index.html"
@@ -18,6 +28,10 @@ module.exports = function(grunt) {
             css: {
                 src: "./index.css",
                 dest: "./dist/index.css"
+            },
+            js: {
+                src: "./index.js",
+                dest: "./dist/index.js"
             }
         }
     })
@@ -25,6 +39,8 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks("grunt-contrib-htmlmin");
     grunt.loadNpmTasks("grunt-contrib-copy");
+    grunt.loadNpmTasks("grunt-contrib-cssmin");
+    grunt.loadNpmTasks("grunt-contrib-uglify");
 
-    grunt.registerTask("release", ['copy', 'htmlmin']);
-}
+    grunt.registerTask("release", ['copy', 'htmlmin', 'cssmin', 'uglify']);
+} 
